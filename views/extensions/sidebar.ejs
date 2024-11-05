@@ -1,0 +1,42 @@
+<aside>
+    <h2>Menu</h2>
+    <ul>
+        <li> Profil
+            <ul>
+                <% user = true %>
+                <% if (user) { %>
+                    <li>
+                        <a href="/sign-out">Déconnexion</a>
+                    </li>
+                <% } else { %>
+                    <li><a href="/sign-in">Se connecter</a></li>
+                    <li><a href="/sign-up">S'inscrire</a></li>
+                <% } %>
+            </ul>
+        </li>
+        <% if (user) { %>
+            <li>
+                <button data-modal-target="default-modal" data-modal-toggle="default-modal" class="block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">
+                    Toggle modal
+                </button>
+                <%- include('create-modal') %>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="/today">Aujourd'hui</a>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="/future">Prochainement</a>
+                </button>
+            </li>
+            <li>
+                <button type="button">
+                    <a href="/search">Filtres / Etiquettes</a>
+                </button>
+            </li>
+        <% } %>
+    </ul>
+    <%- include('./extensions/footer') %>
+</aside>
